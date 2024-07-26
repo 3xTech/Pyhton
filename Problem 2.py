@@ -1,30 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jun 28 10:01:38 2023
+Created on Wed Jun 28 15:02:22 2023
 
 @author: micke
 """
 
-s = 'azcbobobegghakl'
+def remainingBalance(balance, annualInterestRate, fixedPayment):
+                   months = 12
+                   for m in range(months):
+                       monthlyInterest = annualInterestRate/12.0
+                       unpaid = balance - fixedPayment
+                       remainingBalance = unpaid + (monthlyInterest * unpaid)
+                       balance = remainingBalance
+                   return balance
+    
+    
+    
+balance = 3329
+annualInterestRate = 0.2
+fixedPayment = 0
+result = 1
 
+while result > 0:
+         fixedPayment += 10
+         result = int(remainingBalance(balance, annualInterestRate, fixedPayment))
 
-def numberOfTimesBob(s):
-     '''
-     Input: A string of lower case characters
-     Output: Returns the number of times bob occurs
-     '''
-     st = 0
-     e = 3
-     nBob = 0 
-     c = 0
-     while c < len(s):
-         w = s[st:e]
-         if w == "bob":
-             nBob += 1
-         c += 1
-         st += 1
-         e += 1
-     return nBob
- 
-print(numberOfTimesBob(s))
          
+         
+         
+print(fixedPayment)
+
+
+
+
